@@ -1,7 +1,7 @@
 ﻿using System;
-using ConsoleApplication1.Models;
+using ConsoleTicTacToeGame.Models;
 
-namespace ConsoleApplication1
+namespace ConsoleTicTacToeGame
 {
     internal static class Program
     {
@@ -21,40 +21,40 @@ namespace ConsoleApplication1
                 {
                     // if (!Bot.WinSomeone())
                     // {
-                    ShowMenuQuestions();
-                    var menuOption = Convert.ToInt16(Console.ReadLine());
-                    if (menuOption == 0 || menuOption > 4)
-                        throw new Exception("Please select a number of menu!");
-                    switch (menuOption)
-                    {
-                        case 1:
-                            table.ShowActualTable();
-                            break;
-                        case 2:
-                            Console.WriteLine("Give me position of number and value");
-                            Console.WriteLine("Coordinate: ");
-                            string position = Console.ReadLine();
-                            table.SetCoordinates(position);
-                            break;
-                        case 3:
-                            ShowSubMenuQuestions();
-                            var subMenuOption = Convert.ToInt16(Console.ReadLine());
-                            if (subMenuOption == 0 || subMenuOption > 2)
-                                throw new Exception("Please select a number of submenu!");
-                            switch (subMenuOption)
-                            {
-                                case 1:
-                                    Console.Write("Press enter if you finish to read");
-                                    Console.ReadKey();
-                                    break;
-                                case 2:
-                                    break;
-                            }
-                            break;
-                        case 4:
-                            _run = false;
-                            break;
-                    }
+                        ShowMenuQuestions();
+                        var menuOption = Convert.ToInt16(Console.ReadLine());
+                        if (menuOption == 0 || menuOption > 4)
+                            throw new Exception("Please select a number of menu!");
+                        switch (menuOption)
+                        {
+                            case 1: 
+                                table.ShowActualTable();
+                                break;
+                            case 2:
+                                Console.WriteLine("Give me position of number and value");
+                                Console.WriteLine("Coordinate: ");
+                                string position = Console.ReadLine();
+                                table.SetCoordinates(position);
+                                break;
+                            case 3:
+                                ShowSubMenuQuestions();
+                                var subMenuOption = Convert.ToInt16(Console.ReadLine());
+                                if (subMenuOption == 0 || subMenuOption > 2)
+                                    throw new Exception("Please select a number of submenu!");
+                                switch (subMenuOption)
+                                {
+                                    case 1:
+                                        Console.Write("Press enter if you finish to read");
+                                        Console.ReadKey();
+                                        break;
+                                    case 2:
+                                        break;
+                                }
+                                break;
+                            case 4:
+                                _run = false;
+                                break;
+                        }
                     // }
                     // else
                     // {
