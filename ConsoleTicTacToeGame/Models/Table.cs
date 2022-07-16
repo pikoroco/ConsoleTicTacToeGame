@@ -7,8 +7,16 @@ namespace ConsoleTicTacToeGame.Models
     public class Table
     {
         private static string _selectedSymbol;
+        private static string _aiSymbol;
+        private readonly Bot _bot;
         private readonly Dictionary<string, string> _mappedPositons = new Dictionary<string, string>();
         private static Dictionary<string, string> _usedPositons = new Dictionary<string, string>();
+
+        public static string AiSymbol
+        {
+            get => _aiSymbol;
+            set => _aiSymbol = value;
+        }
 
         public static string SelectedSymbol
         {
@@ -25,7 +33,11 @@ namespace ConsoleTicTacToeGame.Models
         public Table(string selectedSymbol)
         {
             _selectedSymbol = selectedSymbol;
+            _aiSymbol = "O";
+            if (_selectedSymbol == "O")
+                _aiSymbol = "X";
             PositionMapper();
+            _bot = new Bot();
 
         }
 
@@ -72,6 +84,7 @@ namespace ConsoleTicTacToeGame.Models
             }
             _usedPositons.Add(position, _selectedSymbol);
             _mappedPositons[position] = _selectedSymbol;
+            _bot.BotResponse();
         }
     
         private bool CheckCoordinateUsed(string key)
