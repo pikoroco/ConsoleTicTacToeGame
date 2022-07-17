@@ -72,7 +72,6 @@ namespace ConsoleTicTacToeGame
                 {
                     Console.WriteLine(e);
                 }
-                throw;
             }
         }
 
